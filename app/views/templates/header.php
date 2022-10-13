@@ -23,7 +23,7 @@
                         <a class="nav-link" href="<?= BASEURL ?>/about">About</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="<?= BASEURL ?>/about/page">Page</a>
+                        <a class="nav-link" href="<?= BASEURL ?>/mahasiswa">Mahasiswa</a>
                     </li>
                 </ul>
             </div>
