@@ -25,17 +25,7 @@ class Mahasiswa_model{
     private $dbh; // database handler
     private $stmn; // statement
 
-    public function __construct()
-    {
-        // data source name
-        $dsn ='mysql:host=localhost;dbname=db_mahasiswa';
-
-        try{
-            $this->dbh = new PDO($dsn, 'root',''); // PDO (PHP Data Object) = Driver PHP untuk mengambil database
-        } catch(PDOException $e){
-            die($e->getMessage());
-        }
-    }
+    
 
     public function getAllMahasiswa(){
         // return $this->mhs;
