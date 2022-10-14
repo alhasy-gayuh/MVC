@@ -11,17 +11,32 @@
             <button type="button" class="btn btn-primary mb-3 tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
                 Tambah Data Mahasiswa
             </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <form action="<?= BASEURL ?>/mahasiswa/cari" method="post">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Cari Nama Mahasiswa" name="keyword" id="keyword">
+                    <button class="btn btn-outline-primary" type="submit" id="tombolCari">Cari</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
             <h3>Daftar Mahasiswa</h3>
             <ul class="list-group">
                 <?php foreach ($data['mhs'] as $mhs) : ?>
                     <li class="list-group-item">
                         <?= $mhs['nama'] ?>
-                        <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge ms-2 text-bg-danger float-end px-3" style="text-decoration: none;" onclick="return confirm('Yakin?')" >
+                        <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge ms-2 text-bg-danger float-end px-3" style="text-decoration: none;" onclick="return confirm('Yakin?')">
                             Hapus</a>
-                            <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="tampilModalUbah badge ms-2 text-bg-primary float-end px-3" style="text-decoration: none;" data-bs-toggle="modal" data-id="<?= $mhs['id'] ?>" data-bs-target="#formModal">
-                                Ubah</a>
-                            <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge ms-2 text-bg-secondary float-end px-3" style="text-decoration: none;">
-                                Detail</a>
+                        <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="tampilModalUbah badge ms-2 text-bg-primary float-end px-3" style="text-decoration: none;" data-bs-toggle="modal" data-id="<?= $mhs['id'] ?>" data-bs-target="#formModal">
+                            Ubah</a>
+                        <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge ms-2 text-bg-secondary float-end px-3" style="text-decoration: none;">
+                            Detail</a>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -54,7 +69,7 @@
                         <input type="email" name="email" class="form-control" id="email">
                     </div>
                     <div class="input-group mb-3">
-                    <label class="input-group-text" for="jurusan">Jurusan</label>
+                        <label class="input-group-text" for="jurusan">Jurusan</label>
                         <select class="form-select" id="jurusan" name="jurusan">
                             <option selected>Pilih Jurusan...</option>
                             <option value="Teknik Informatika">Teknik Informatika</option>
