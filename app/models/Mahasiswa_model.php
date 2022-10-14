@@ -22,17 +22,17 @@ class Mahasiswa_model{
     //     ]
     // ];
 
-    private $dbh; // database handler
-    private $stmn; // statement
+    private $table = 'mahasiswa';
+    private $db;
 
-    
+    public function __construct()
+    {
+        $this->db = new Database;
+    }
 
     public function getAllMahasiswa(){
-        // return $this->mhs;
 
-        // untuk menampilkan seluruh data
-        $this->stmn = $this->dbh->prepare('SELECT * FROM mahasiswa');
-        $this->stmn->execute();
-        return $this->stmn->fetchAll(PDO::FETCH_ASSOC);
+        $this->db->query('SELECT * FROM '.$this->table);
+        return $this->db->resultSet();
     }
 }

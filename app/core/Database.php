@@ -1,11 +1,10 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 class Database{
     private $host = DB_HOST, $user = DB_USER, $pass = DB_PASS, $db_name = DB_NAME;
 
-    private $dbh, $stmn;
+    private $dbh;
+    private $stmn;
 
     public function __construct()
     {
@@ -14,18 +13,18 @@ class Database{
 
         $option = [
             PDO::ATTR_PERSISTENT => true,
-            pdo::ATTR_ERRMODE => pdo::ERRMODE_EXCEPTION
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
 
         try{
-            $this->dbh = new PDO($dsn, $this->user, $this->pass); // PDO (PHP Data Object) = Driver PHP untuk mengambil database
+            $this->dbh = new PDO($dsn, $this->user, $this->pass, $option); // PDO (PHP Data Object) = Driver PHP untuk mengambil database
         } catch(PDOException $e){
             die($e->getMessage());
         }
     }
 
     public function query($query){
-        $this->query = $this->dbh->prepare($query);
+        $this->stmn = $this->dbh->prepare($query);
     }
 
     // dengan melakukan bind akan terhindar dari injektion database
